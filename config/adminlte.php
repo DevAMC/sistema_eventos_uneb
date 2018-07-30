@@ -13,9 +13,9 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'Sistema de Eventos',
 
-    'title_prefix' => '',
+    'title_prefix' => 'UNeB',
 
     'title_postfix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Eventos</b>UNeB',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue',
+    'skin' => 'red',
 
     /*
     |--------------------------------------------------------------------------
@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'layout' => null,
+    'layout' => 'top-nav',
 
     /*
     |--------------------------------------------------------------------------
