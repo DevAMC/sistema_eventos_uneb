@@ -8,8 +8,8 @@ use App\Presenca;
 class ValidacaoController extends Controller
 {
     //validar presença (os resultados desta operação ficarão gravados na tabela presenca)
-    public function valida($id){
-        if(!ja_validado(1,1)){
+    public function valida(Request $req){
+        if(!ja_validado(dd($req->id), session('id_label_evento'))){
             $presenca = new Presenca();
             return response()->json($presenca);
         }else{

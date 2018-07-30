@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    
+
     <div class="panel panel-danger">
           <div class="panel-heading">
                 <h3 class="panel-title">Validação</h3>
@@ -101,11 +101,22 @@
             var val = $('#identificador').val();
             $('#identificador').val('');
 
+            $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+            });
             //faz requisição ajax
             $.ajax({
                 url: "/validacao",
                 method: "POST",
-                data: { id: val }
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: { 
+                    _token: '{{csrf_token()}}',
+                    id: val 
+                }
             }).done(function response(){
 
             }).fail(function erro() {
