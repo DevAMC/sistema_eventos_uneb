@@ -10,7 +10,7 @@
     
     <div class="panel panel-danger">
           <div class="panel-heading">
-                <h3 class="panel-title">Bipar</h3>
+                <h3 class="panel-title">Validação</h3>
           </div>
           <div class="panel-body">
 
@@ -19,7 +19,6 @@
                 <h2 class="text-center" style="font-weight: 900;">Nome do cristão</h2>
                 <p class="text-center" style="font-weight: 600;"> Campo </p>
             </div>
-            
                 <input 
                     style="font-size: 30px; padding: 40px; text-align: center; font-weight: 900;"
                     type="identificador" 
@@ -29,19 +28,19 @@
                     onenter
                     placeholder="Digite ou passe o identificador">
             <br>
-            <div class="alert alert-success">
+            <div style="display: none;" id="participante_validado" class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <strong>Tudo ok!</strong> Participante validado...
             </div>
             
-            <div class="alert alert-danger">
+            <div style="display: none;" id="participante_nao_cadastrado" class="alert alert-danger">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <strong>Desculpa!</strong> Este participante não está cadastrado...
             </div>
             
-            <div class="alert alert-warning">
+            <div style="display: none;" id="participante_validado" class="alert alert-warning">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Ops!</strong> Esse participante já foi bipado...
+                <strong>Ops!</strong> Esse participante já foi validado...
             </div>
 
           </div>          
@@ -95,10 +94,24 @@
 
 @push('js')
 <script>
-    
-    function bipar_participante(id){
-        console.log(id);
-    }
+    $(document).keypress(function (e) {
+        if(e.which == 13){
+
+            //pega valor do input e em seguida limpa o mesmo
+            var val = $('#identificador').val();
+            $('#identificador').val('');
+
+            //faz requisição ajax
+            $.ajax().done(function response(){
+
+            }).fail(function erro() {
+                
+            });
+
+            //printa no log
+            console.log(val);
+        }
+    });
 
 </script>
 @endpush
