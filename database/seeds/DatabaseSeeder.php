@@ -12,5 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(CriaUsuariosPadrao::class);
+        $this->call(CriaEventoModelo::class);
+        $this->call(CriaLabelsEventoModelo::class);
+        $this->call(CriaParticipanteModelo::class);
     }
 }
