@@ -102,7 +102,11 @@
             $('#identificador').val('');
 
             //faz requisição ajax
-            $.ajax().done(function response(){
+            $.ajax({
+                url: "/validacao",
+                method: "POST",
+                data: { id: val }
+            }).done(function response(){
 
             }).fail(function erro() {
                 

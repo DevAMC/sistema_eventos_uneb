@@ -15,8 +15,13 @@ class CreatePresencasTable extends Migration
     {
         Schema::create('presencas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_participante');
+            $table->integer('id_participante')->unsigned();
+            $table->integer('id_label_evento')->unsigned();
             $table->timestamps();
+
+            $table->foreign('id_participante')->on('participantes')->references('id')->onDelete('cascade');
+            $table->foreign('id_label_evento')->on('evento_labels')->references('id')->onDelete('cascade');
+
         });
     }
 

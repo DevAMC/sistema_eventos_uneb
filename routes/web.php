@@ -19,3 +19,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //rotas de retorno JSON
+Route::post('/validacao', 'ValidacaoController@valida');
