@@ -73,6 +73,7 @@ class ValidacaoController extends Controller
         $ultimos_registros = Participante::join('presencas', 'presencas.id_participante', '=', 'participantes.id')
             ->where('presencas.id_label_evento', session('id_label_evento'))
             ->limit(5)
+            ->orderBy('presencas.created_at', 'desc')
             ->get();
         
         return(['qnt_participantes' => $qnt_participantes,

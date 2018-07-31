@@ -20,6 +20,7 @@ Auth::routes();
 //Rotas home
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/validacao', 'ValidacaoController@valida');
+Route::get('/estatisticas', 'ValidacaoController@receber_estatisticas');
 
 
 //Rotas Label Evento

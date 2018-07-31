@@ -110,6 +110,7 @@
                     $('#participante_validado').css('display', 'block');
                     $('#participante_ja_validado').css('display', 'none');
                     $('#participante_nao_cadastrado').css('display', 'none');
+                    carrega_table();
 
                 }else if(response.erro == 'ja validado'){
                     $('#participante_ja_validado').css('display', 'block');
@@ -123,7 +124,7 @@
                 }else{
                     $('#participante_nao_cadastrado').css('display', 'block');
                     $('#participante_ja_validado').css('display', 'none');
-            $('#participante_validado').css('display', 'none');
+                    $('#participante_validado').css('display', 'none');
 
             //altera informações do front
             $('#nome_participante').text('');
@@ -150,13 +151,27 @@
 </script>
 
 <script>
-    $('#table').DataTable({
-        'data': [{
-            'id': '23',
-            'nome': 'nome',
-            'campo' 'uneb'
-        }]
-    });
+    
+    var table = $('#table').DataTable({
+        "paging": false,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": false,
+        "info": true,
+        "autoWidth": false,
+        ajax: {
+            url: '/estatisticas',
+            dataSrc: 'ultimos_registros'
+        },
+        columns: [
+        {data: 'identificador'},
+        {data: 'nome' },
+        {data: 'campo' }
+            ]
+        });
+    function carrega_table(){
+        table.ajax.reload();
+    }
 </script>
 
 
