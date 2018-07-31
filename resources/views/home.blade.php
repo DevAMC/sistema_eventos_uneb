@@ -117,9 +117,9 @@
                     _token: '{{csrf_token()}}',
                     id: val 
                 }
-            }).done(function response(){
-
-            }).fail(function erro() {
+            }).done(function (response){
+                console.log(response);
+            }).fail(function (response) {
                 
             });
 
