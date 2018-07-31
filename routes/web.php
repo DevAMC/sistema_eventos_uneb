@@ -15,7 +15,9 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
+//views
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/selecionaLabelEvento', 'ConfiguraLabelEvento@configuraLabelView');
 
 
 //rotas de retorno JSON

@@ -7,6 +7,18 @@ use App\Presenca;
 
 class ValidacaoController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('CheckEventoLabel');
+    }
+
+
     //validar presença (os resultados desta operação ficarão gravados na tabela presenca)
     public function valida(Request $req){
         if(!ja_validado(dd($req->id), session('id_label_evento'))){
