@@ -24,6 +24,6 @@ Route::post('/validacao', 'ValidacaoController@valida');
 
 //Rotas Label Evento
 Route::get('/selecionaLabelEvento', 'ConfiguraLabelEvento@configuraLabelView');
-Route::get('/selecionaLabelEvento/{id}', 'ConfiguraLabelEvento@configuraLabel');
+Route::get('/selecionaLabelEvento/{id_label}/{id_evento}', 'ConfiguraLabelEvento@configuraLabel');
 Route::post('/criaLabelEvento', 'ConfiguraLabelEvento@criaLabel');
 

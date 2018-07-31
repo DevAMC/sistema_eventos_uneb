@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Evento_label;
+use App\Participante;
 
 class HomeController extends Controller
 {
@@ -25,10 +26,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //retorn o label selecionado
+        //retorna o label selecionado
         $label_selecionado = Evento_label::with('evento')->where('id',session('id_label_evento'))->get();
 
-        return view('home', compact('label_selecionado'));
+        $qnt_participantes = Participante::where('id_evento', session('id_evento'));
+
+        return view('home', compact('label_selecionado', 'qnt_participantes'));
     }
 
     

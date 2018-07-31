@@ -48,7 +48,7 @@
         
         <div class="col-md-6">
             @foreach($labels as $label)
-            <a href="/selecionaLabelEvento/{{$label->id}}"><button type="button" class="btn btn-default"><i class="fa fa-hashtag" aria-hidden="true"></i> {{$label->label}}</button></a>
+            <a href="/selecionaLabelEvento/{{$label->id}}/{{$label->evento->id}}"><button type="button" class="btn btn-default"><i class="fa fa-hashtag" aria-hidden="true"></i> {{$label->label}}</button></a>
             @endforeach      
         </div>
             

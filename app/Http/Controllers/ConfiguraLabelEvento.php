@@ -20,10 +20,10 @@ class ConfiguraLabelEvento extends Controller
         return view('configuraLabel', compact('labels', 'eventos'));
     }
 
-    public function configuraLabel($id)
+    public function configuraLabel($id_label, $id_evento)
     {
-        session(['id_label_evento' => $id]);
-        if(session('id_label_evento')){
+        session(['id_label_evento' => $id_label , 'id_evento' => $id_evento]);
+        if(session('id_label_evento') && session('id_evento')){
             return redirect('/');
         }else{
             return redirect('/selecionaLabelEvento');

@@ -17,7 +17,7 @@
             
             <div class="col-md-12">
                 <h1 id="nome_participante" class="text-center" style="font-weight: 900; color: #ff5722;"> </h1>
-                <p id="campo" class="text-center" style="font-weight: 600;"> </p>
+                <h3 id="campo_participante" class="text-center" style="font-weight: 600;"> </h3>
             </div>
                 <input 
                     style="font-size: 30px; padding: 40px; text-align: center; font-weight: 900;"
@@ -84,7 +84,7 @@
                 <div class="col-md-6">
                     <p>Qnt total de participantes: <b>0</b></p>
                     <p>Qnt total de participantes presentes: <b>0</b></p>
-                    <p>Qnt total de participantes bipados: <b>0</b></p>
+                    <p>Qnt total de participantes validados: <b>0</b></p>
                 </div>
           </div>
     </div>
@@ -132,7 +132,7 @@
 
                     //altera informações do front
                     $('#nome_participante').text('');
-                    $('#nome_participante').text('');
+                    $('#campo_participante').text('');
 
                 }else{
                     $('#participante_nao_cadastrado').css('display', 'block');
@@ -141,12 +141,12 @@
 
                     //altera informações do front
                     $('#nome_participante').text('');
-                    $('#nome_participante').text('');
+                    $('#campo_participante').text('');
                 }
 
                 //altera informações do front
                 $('#nome_participante').text(response.participante.nome);
-                $('#nome_participante').text(response.participante.nome);
+                $('#campo_participante').text(response.participante.campo);
 
             }).fail(function (response) {
                 
