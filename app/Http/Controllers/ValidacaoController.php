@@ -31,19 +31,13 @@ class ValidacaoController extends Controller
                 $presenca->save();
 
                 //dados secundários
-                $qnt_participantes = Participante::where('id_evento', session('id_evento'))->count();
-                $qnt_participantes_presentes = Participante::join('presencas', 'presencas.id_participante', '=', 'participantes.id')
-                    ->where('presencas.id_label_evento', session('id_label_evento'))->get()->count();
-
-                $qnt_participantes_nao_presentes = Participante::whereNotIn('id', DB::table('presencas')->where('id_label_evento', session('id_label_evento'))
-                        ->pluck('id_participante')
-                    )->get()->count();
+                $estatisticas = $this->receber_estatisticas();
 
                 return response()->json(['status' => 'ok', 
                             'participante' => Participante::find($req->id),
-                            'qnt_participante' => $qnt_participantes,
-                            'qnt_participante_presentes' => $qnt_participantes_presentes,
-                            'qnt_participante_nao_presentes' => $qnt_participantes_nao_presentes,
+                            'qnt_participante' => $estatisticas[0],
+                            'qnt_participante_presentes' => $estatisticas[1],
+                            'qnt_participante_nao_presentes' => $estatisticas[2],
                             ]);
             }else{
                 return response()->json(['erro' => "ja validado"]);
@@ -58,5 +52,23 @@ class ValidacaoController extends Controller
                                 ->where('id_label_evento', $id_label)
                                 ->get();
             return ($v->count() > 0) ? true : false;
+    }
+
+    /**
+     * Retorno
+     * indice 0: Qnt de participantes
+     * indice 1: Qnt de participantes presentes
+     * indice 2: Qnt de participantes não presentes
+     */
+    public function receber_estatisticas(){
+        $qnt_participantes = Participante::where('id_evento', session('id_evento'))->count();
+        $qnt_participantes_presentes = Participante::join('presencas', 'presencas.id_participante', '=', 'participantes.id')
+            ->where('presencas.id_label_evento', session('id_label_evento'))->get()->count();
+        $qnt_participantes_nao_presentes = Participante::whereNotIn('id', DB::table('presencas')
+                ->where('id_label_evento', session('id_label_evento'))
+                ->pluck('id_participante')
+            )->get()->count();
+        
+        return([$qnt_participantes, $qnt_participantes_presentes, $qnt_participantes_nao_presentes]);
     }
 }
