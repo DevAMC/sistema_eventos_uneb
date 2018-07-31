@@ -16,7 +16,7 @@
 
             
             <div class="col-md-12">
-                <h3 id="nome_participante" class="text-center" style="font-weight: 900;"> </h3>
+                <h1 id="nome_participante" class="text-center" style="font-weight: 900; color: #ff5722;"> </h1>
                 <p id="campo" class="text-center" style="font-weight: 600;"> </p>
             </div>
                 <input 
@@ -130,10 +130,18 @@
                     $('#participante_validado').css('display', 'none');
                     $('#participante_nao_cadastrado').css('display', 'none');
 
+                    //altera informações do front
+                    $('#nome_participante').text('');
+                    $('#nome_participante').text('');
+
                 }else{
                     $('#participante_nao_cadastrado').css('display', 'block');
                     $('#participante_ja_validado').css('display', 'none');
                     $('#participante_validado').css('display', 'none');
+
+                    //altera informações do front
+                    $('#nome_participante').text('');
+                    $('#nome_participante').text('');
                 }
 
                 //altera informações do front
