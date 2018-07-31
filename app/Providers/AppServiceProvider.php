@@ -56,6 +56,13 @@ class AppServiceProvider extends ServiceProvider
                 'icon' => 'desktop'
 
             ]);
+
+            $event->menu->add([
+                'text' => 'Mudar Label Evento',
+                'url' => '/selecionaLabelEvento',
+                'icon' => 'exchange'
+
+            ]);
         });
     }
 
