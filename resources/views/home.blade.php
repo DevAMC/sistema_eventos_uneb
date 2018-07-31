@@ -82,9 +82,9 @@
                     </table>
                 </div>
                 <div class="col-md-6">
-                    <p>Qnt total de participantes: <b>0</b></p>
-                    <p>Qnt total de participantes presentes: <b>0</b></p>
-                    <p>Qnt total de participantes validados: <b>0</b></p>
+                    <p id="qnt_participantes"> </p>
+                    <p id="qnt_participantes_presentes"></p>
+                    <p id="qnt_participantes_nao_presentes"></p>
                 </div>
           </div>
     </div>
@@ -137,16 +137,20 @@
                 }else{
                     $('#participante_nao_cadastrado').css('display', 'block');
                     $('#participante_ja_validado').css('display', 'none');
-                    $('#participante_validado').css('display', 'none');
+            $('#participante_validado').css('display', 'none');
 
-                    //altera informações do front
-                    $('#nome_participante').text('');
-                    $('#campo_participante').text('');
-                }
+            //altera informações do front
+            $('#nome_participante').text('');
+            $('#campo_participante').text('');
+        }
 
-                //altera informações do front
-                $('#nome_participante').text(response.participante.nome);
-                $('#campo_participante').text(response.participante.campo);
+        //altera informações do front
+        $('#nome_participante').text(response.participante.nome);
+        $('#campo_participante').text(response.participante.campo);
+        
+        $('#qnt_participantes').text('Qnt participantes: '+response.qnt_participante+'');
+        $('#qnt_participantes_presentes').text('Qnt participantes presentes: '+response.qnt_participante_presentes+'');
+        $('#qnt_participantes_nao_presentes').text('Qnt participantes não presentes: '+response.qnt_participante_nao_presentes+'');
 
             }).fail(function (response) {
                 
