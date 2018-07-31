@@ -35,9 +35,10 @@ class ValidacaoController extends Controller
 
                 return response()->json(['status' => 'ok', 
                             'participante' => Participante::find($req->id),
-                            'qnt_participante' => $estatisticas[0],
-                            'qnt_participante_presentes' => $estatisticas[1],
-                            'qnt_participante_nao_presentes' => $estatisticas[2],
+                            'qnt_participante' => $estatisticas['qnt_participantes'],
+                            'qnt_participante_presentes' => $estatisticas['qnt_participantes_presentes'],
+                            'qnt_participante_nao_presentes' => $estatisticas['qnt_participantes_nao_presentes'],
+                            'ultimos_registros' => $estatisticas['ultimos_registros']
                             ]);
             }else{
                 return response()->json(['erro' => "ja validado"]);
@@ -68,7 +69,15 @@ class ValidacaoController extends Controller
                 ->where('id_label_evento', session('id_label_evento'))
                 ->pluck('id_participante')
             )->get()->count();
+
+        $ultimos_registros = Participante::join('presencas', 'presencas.id_participante', '=', 'participantes.id')
+            ->where('presencas.id_label_evento', session('id_label_evento'))
+            ->limit(5)
+            ->get();
         
-        return([$qnt_participantes, $qnt_participantes_presentes, $qnt_participantes_nao_presentes]);
+        return(['qnt_participantes' => $qnt_participantes,
+                'qnt_participantes_presentes' => $qnt_participantes_presentes,
+                'qnt_participantes_nao_presentes' => $qnt_participantes_nao_presentes,
+                'ultimos_registros' => $ultimos_registros]);
     }
 }

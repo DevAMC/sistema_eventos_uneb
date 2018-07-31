@@ -54,30 +54,16 @@
           </div>
           <div class="panel-body">
                 <div class="col-md-6">                    
-                    <table class="table table-condensed table-hover">
+                    <table id="table" class="table table-condensed table-hover">
                         <thead>
                             <tr>
-                                <th>iden</th>
+                                <th>id</th>
                                 <th>nome</th>
                                 <th>campo</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>#1</td>
-                                <td>Meirinho</td>
-                                <td>UNeB</td>
-                            </tr>
-                            <tr>
-                                <td>#1</td>
-                                <td>Meirinho</td>
-                                <td>UNeB</td>
-                            </tr>
-                            <tr>
-                                <td>#1</td>
-                                <td>Meirinho</td>
-                                <td>UNeB</td>
-                            </tr>
+                         
                         </tbody>
                     </table>
                 </div>
@@ -144,16 +130,16 @@
             $('#campo_participante').text('');
         }
 
-        //altera informações do front
-        $('#nome_participante').text(response.participante.nome);
-        $('#campo_participante').text(response.participante.campo);
-        
-        $('#qnt_participantes').text('Qnt participantes: '+response.qnt_participante+'');
-        $('#qnt_participantes_presentes').text('Qnt participantes presentes: '+response.qnt_participante_presentes+'');
-        $('#qnt_participantes_nao_presentes').text('Qnt participantes não presentes: '+response.qnt_participante_nao_presentes+'');
+            //altera informações do front
+            $('#nome_participante').text(response.participante.nome);
+            $('#campo_participante').text(response.participante.campo);
+            
+            $('#qnt_participantes').text('Qnt participantes: '+response.qnt_participante+'');
+            $('#qnt_participantes_presentes').text('Qnt participantes presentes: '+response.qnt_participante_presentes+'');
+            $('#qnt_participantes_nao_presentes').text('Qnt participantes não presentes: '+response.qnt_participante_nao_presentes+'');
 
             }).fail(function (response) {
-                
+                alert('Falha na requisição, verifique a rede!');
             });
 
             //printa no log
@@ -162,4 +148,16 @@
     });
 
 </script>
+
+<script>
+    $('#table').DataTable({
+        'data': [{
+            'id': '23',
+            'nome': 'nome',
+            'campo' 'uneb'
+        }]
+    });
+</script>
+
+
 @endpush
