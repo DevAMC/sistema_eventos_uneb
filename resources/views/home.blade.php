@@ -38,7 +38,7 @@
                 <strong>Desculpa!</strong> Este participante não está cadastrado...
             </div>
             
-            <div style="display: none;" id="participante_validado" class="alert alert-warning">
+            <div style="display: none;" id="participante_ja_validado" class="alert alert-warning">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <strong>Ops!</strong> Esse participante já foi validado...
             </div>
@@ -118,7 +118,21 @@
                     id: val 
                 }
             }).done(function (response){
-                console.log(response);
+                if(response.status == 'ok'){
+                    $('#participante_validado').css('display', 'block');
+                    $('#participante_ja_validado').css('display', 'none');
+                    $('#participante_nao_cadastrado').css('display', 'none');
+
+                }else if(response.erro == 'ja validado'){
+                    $('#participante_ja_validado').css('display', 'block');
+                    $('#participante_validado').css('display', 'none');
+                    $('#participante_nao_cadastrado').css('display', 'none');
+
+                }else{
+                    $('#participante_nao_cadastrado').css('display', 'block');
+                    $('#participante_ja_validado').css('display', 'none');
+                    $('#participante_validado').css('display', 'none');
+                }
             }).fail(function (response) {
                 
             });
