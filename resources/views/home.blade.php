@@ -3,7 +3,7 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>Encontro de Educação - 04/08/2018 - 10/08/2018</h1>
+    <h1>{{$label_selecionado[0]->evento->evento }} - {{$label_selecionado[0]->label}}</h1>
 @stop
 
 @section('content')

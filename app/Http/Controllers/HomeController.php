@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Evento_label;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        //retorn o label selecionado
+        $label_selecionado = Evento_label::with('evento')->where('id',session('id_label_evento'))->get();
+
+        return view('home', compact('label_selecionado'));
     }
 
     
