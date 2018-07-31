@@ -16,8 +16,8 @@
 
             
             <div class="col-md-12">
-                <h2 class="text-center" style="font-weight: 900;">Nome do cristão</h2>
-                <p class="text-center" style="font-weight: 600;"> Campo </p>
+                <h3 id="nome_participante" class="text-center" style="font-weight: 900;"> </h3>
+                <p id="campo" class="text-center" style="font-weight: 600;"> </p>
             </div>
                 <input 
                     style="font-size: 30px; padding: 40px; text-align: center; font-weight: 900;"
@@ -94,6 +94,7 @@
 
 @push('js')
 <script>
+
     $(document).keypress(function (e) {
         if(e.which == 13){
 
@@ -118,6 +119,7 @@
                     id: val 
                 }
             }).done(function (response){
+                    console.log(response);
                 if(response.status == 'ok'){
                     $('#participante_validado').css('display', 'block');
                     $('#participante_ja_validado').css('display', 'none');
@@ -133,6 +135,11 @@
                     $('#participante_ja_validado').css('display', 'none');
                     $('#participante_validado').css('display', 'none');
                 }
+
+                //altera informações do front
+                $('#nome_participante').text(response.participante.nome);
+                $('#nome_participante').text(response.participante.nome);
+
             }).fail(function (response) {
                 
             });

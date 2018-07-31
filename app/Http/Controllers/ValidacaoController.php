@@ -28,7 +28,7 @@ class ValidacaoController extends Controller
                 $presenca->id_participante = $req->id;
                 $presenca->id_label_evento = session('id_label_evento');
                 $presenca->save();
-                return response()->json(['status' => 'ok']);
+                return response()->json(['status' => 'ok', 'participante' => Participante::find($req->id)]);
             }else{
                 return response()->json(['erro' => "ja validado"]);
             }
