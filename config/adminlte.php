@@ -15,7 +15,7 @@ return [
 
     'title' => 'Sistema de Eventos',
 
-    'title_prefix' => 'UNeB',
+    'title_prefix' => 'UNeB ',
 
     'title_postfix' => '',
 

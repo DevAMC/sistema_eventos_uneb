@@ -19,6 +19,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/selecionaLabelEvento', 'ConfiguraLabelEvento@configuraLabelView');
 
+//Seleciona Label Evento
+Route::get('/selecionaLabelEvento/{id}', 'ConfiguraLabelEvento@configuraLabel');
+
 
 //rotas de retorno JSON
 Route::post('/validacao', 'ValidacaoController@valida');

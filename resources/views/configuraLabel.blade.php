@@ -16,7 +16,9 @@
       <div class="panel-body">
         
         <div class="col-md-6">
-            <button type="button" class="btn btn-default">button</button>            
+            @foreach($labels as $label)
+            <a href="/selecionaLabelEvento/{{$label->id}}"><button type="button" class="btn btn-default">{{$label->label}}</button></a>
+            @endforeach      
         </div>
             
       </div>
