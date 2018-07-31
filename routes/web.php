@@ -15,13 +15,13 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
-//views
+//Rotas home
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/selecionaLabelEvento', 'ConfiguraLabelEvento@configuraLabelView');
-
-//Seleciona Label Evento
-Route::get('/selecionaLabelEvento/{id}', 'ConfiguraLabelEvento@configuraLabel');
-
-
-//rotas de retorno JSON
 Route::post('/validacao', 'ValidacaoController@valida');
+
+
+//Rotas Label Evento
+Route::get('/selecionaLabelEvento', 'ConfiguraLabelEvento@configuraLabelView');
+Route::get('/selecionaLabelEvento/{id}', 'ConfiguraLabelEvento@configuraLabel');
+Route::post('/criaLabelEvento', 'ConfiguraLabelEvento@criaLabel');
+

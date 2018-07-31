@@ -8,16 +8,47 @@
 
 @section('content')
 
+<div class="panel panel-danger">
+      <div class="panel-heading">
+            <h3 class="panel-title">Cria uma nova label</h3>
+      </div>
+      <div class="panel-body">
+        
+            <form action="/criaLabelEvento" method="POST" role="form">
+            *Label: identificador de acontecimentos do evento.
+            <br>
+            <br>
+                <div class="form-group">
+                    <label for="">Nome do Label</label>
+                    <input type="text" class="form-control" name="label" placeholder="Digite aqui!">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Evento</label>
+                    <select name="id_evento" id="input" class="form-control" required="required">
+                        @foreach($eventos as $evento)
+                        <option value="{{$evento->id}}">{{$evento->evento}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            
+                 @csrf
+                <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</button>
+            </form>
+            
+            
+      </div>
+</div>
 
 <div class="panel panel-danger">
       <div class="panel-heading">
-            <h3 class="panel-title">Configure os labels antes de continuar</h3>
+            <h3 class="panel-title">Selecione uma label</h3>
       </div>
       <div class="panel-body">
         
         <div class="col-md-6">
             @foreach($labels as $label)
-            <a href="/selecionaLabelEvento/{{$label->id}}"><button type="button" class="btn btn-default">{{$label->label}}</button></a>
+            <a href="/selecionaLabelEvento/{{$label->id}}"><button type="button" class="btn btn-default"><i class="fa fa-hashtag" aria-hidden="true"></i> {{$label->label}}</button></a>
             @endforeach      
         </div>
             
