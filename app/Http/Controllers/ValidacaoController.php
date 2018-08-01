@@ -77,8 +77,8 @@ class ValidacaoController extends Controller
             ->get();
         
         return(['qnt_participantes' => $qnt_participantes,
-                'qnt_participantes_presentes' => $qnt_participantes_presentes,
-                'qnt_participantes_nao_presentes' => $qnt_participantes_nao_presentes,
-                'ultimos_registros' => $ultimos_registros]);
+                'qnt_participantes_presentes' => ($qnt_participantes_presentes)? $qnt_participantes_presentes : 0,
+                'qnt_participantes_nao_presentes' => ($qnt_participantes_nao_presentes)? $qnt_participantes_nao_presentes: 0,
+                'ultimos_registros' => ($ultimos_registros)? $ultimos_registros : 0]);
     }
 }

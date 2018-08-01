@@ -17,7 +17,7 @@ class CreateSorteadoTabsTable extends Migration
             $table->increments('id');
             $table->integer('id_participante')->unsigned();
             $table->integer('id_evento_label')->unsigned();
-            $table->integer('id_sorteio_label')->unsigned();
+            $table->integer('id_sorteio_label')->unsigned()->nullable()->default(null);
             $table->timestamps();
 
             $table->foreign('id_participante')->on('participantes')->references('id')->onDelete('cascade');

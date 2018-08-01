@@ -3,7 +3,8 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>{{$label_selecionado[0]->evento->evento }} - {{$label_selecionado[0]->label}}</h1>
+    <h1>{{(!empty($label_selecionado[0]->evento->evento))? $label_selecionado[0]->evento->evento : "evento indisponível"}} 
+        - {{(!empty($label_selecionado[0]->label)) ? $label_selecionado[0]->label : "label indisponível"}}</h1>
 @stop
 
 @section('content')

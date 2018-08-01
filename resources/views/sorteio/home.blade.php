@@ -41,6 +41,7 @@
             }).fail(function (erro) {
                   
             });
+            
             // const waitFor = (ms) => new Promise(r => setTimeout(r, ms))
             // [1, 2, 3].forEach(async (num) => {
             //        for (var i = min; i <= max; i++) {
