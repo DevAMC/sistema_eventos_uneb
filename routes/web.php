@@ -32,6 +32,7 @@ Route::get('/relatorios', 'RelatorioController@view');
 //Rotas cadastro
 Route::get('/cadastros/participantes', 'CadastroController@view_participantes');
 Route::get('/cadastros/eventos', 'CadastroController@view_eventos');
+Route::post('/cadastros/eventos', 'CadastroController@cadastra_evento');
 Route::post('/cadastros/participantes', 'CadastroController@cadastra_participante');
 
 //Rotas Label Evento
