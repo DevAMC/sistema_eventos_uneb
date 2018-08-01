@@ -40,15 +40,15 @@ class SorteioController extends Controller
 
 
                 if(!empty($participante[0])){
-                $sorteado = new SorteadoTab();
-                $sorteado->id_participante = $participante[0]->id;
-                $sorteado->id_evento_label = session('id_label_evento');
-                $sorteado->save();
-                return response()->json(['status' => 'sorteio ok', 
-                                         'participante' => $participante,
-                                         'sorteado' => $sorteado]);
+                    $sorteado = new SorteadoTab();
+                    $sorteado->id_participante = $participante[0]->id;
+                    $sorteado->id_evento_label = session('id_label_evento');
+                    $sorteado->save();
+                    return response()->json(['status' => 'sorteio ok', 
+                                            'participante' => $participante,
+                                            'sorteado' => $sorteado]);
                 }else{
-                return response()->json(['status' => 'nenhum participante']);
+                    return response()->json(['status' => 'nenhum participante']);
                 }
             
 
