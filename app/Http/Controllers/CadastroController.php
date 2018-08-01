@@ -8,18 +8,10 @@ use App\Participante;
 
 class CadastroController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
+    public function view_participantes(){
         $this->middleware('auth');
         $this->middleware('CheckEventoLabel');
-    }
 
-    public function view_participantes(){
         $eventos = Evento::all();
         $participantes = Participante::where('id_evento', session('id_evento'))->get();
         return view('cadastro.participante', compact('eventos', 'participantes'));
@@ -27,6 +19,7 @@ class CadastroController extends Controller
 
     public function view_eventos()
     {
+        $this->middleware('auth');
         $eventos = Evento::all();
         return view('cadastro.evento', compact('eventos'));
     }
