@@ -17,5 +17,23 @@ class CriaParticipanteModelo extends Seeder
             'campo' => "UNeB",
             'id_evento' => 1,
         ]);
+        DB::table('participantes')->insert([
+            'identificador' => "2",
+            'nome' => "Maria da Silva",
+            'campo' => "UNeB",
+            'id_evento' => 1,
+        ]);
+        DB::table('participantes')->insert([
+            'identificador' => "3",
+            'nome' => "Josefa da Silva",
+            'campo' => "UNeB",
+            'id_evento' => 1,
+        ]);
+        DB::table('participantes')->insert([
+            'identificador' => "4",
+            'nome' => "João da Silva",
+            'campo' => "UNeB",
+            'id_evento' => 1,
+        ]);
     }
 }
