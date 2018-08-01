@@ -150,7 +150,7 @@
 </script>
 
 <script>
-    
+
     var table = $('#table').DataTable({
         "paging": false,
         "lengthChange": false,

@@ -36,6 +36,8 @@ class SorteioController extends Controller
                     ->pluck('id_participante')
                 )->limit(1)
                 ->select('participantes.id')
+                ->addSelect('participantes.nome')
+                ->addSelect('participantes.campo')
                 ->get();
 
 

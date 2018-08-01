@@ -26,25 +26,28 @@
       var campo = document.getElementById('campo');
       var min = 1;
       var max = 10000;
-      var count = 0;
-      sortear();
+      
       function sortear() {
             nome.innerHTML = '';
             campo.innerHTML = '';
             $.ajax({
-                  url: ''
+                  url: '/sorteios/sortear'
             }).done(function (response) {
-                  for(var i = 0; i < max; i++){
+                  console.log(response);
+                  if(response.status == "sorteio ok"){
+                        for(var i = 0; i < max; i++){
+                              setTimeout(function (nr) {
+                                    numero.innerHTML = Math.floor(Math.random() * 1000)
+                              }, 0, 100);
+                        }
                         setTimeout(function (nr) {
-                              numero.innerHTML = Math.floor(Math.random() * 1000)
-                        }, 0, 100);
-                  }
-
-                  setTimeout(function (nr) {
-                        numero.innerHTML = 'ok';
-                        nome.innerHTML = 'ok';
-                        campo.innerHTML = 'ok';
-                  }, 0);      
+                              numero.innerHTML = response.participante[0].id;
+                              nome.innerHTML = response.participante[0].nome;
+                              campo.innerHTML = response.participante[0].id;
+                        }, 0);
+                  }else{
+                        numero.innerHTML = 'NENHUM<BR>PARTICIPANTE';
+                  }      
             }).fail(function (erro) {
                   alert('Desculpa, não foi possível realizar o sorteio. Verifique se sua conexão está funcionando.');
             });
