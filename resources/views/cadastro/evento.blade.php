@@ -28,7 +28,7 @@
                 </ul>
             </div>
             @endif
-            <form action="/cadastros" method="POST" role="form">
+            <form action="/cadastros/participantes" method="POST" role="form">
 
                 <div class="form-group">
                     <label for="">Identificador</label>
@@ -56,15 +56,7 @@
                 <button type="submit" class="btn btn-primary"> <i class="fa fa-save"></i> Cadastrar</button>
             </form>
             
-      </div>
-</div>
-
-
-<div class="panel panel-danger">
-      <div class="panel-heading">
-            <h3 class="panel-title">Participantes</h3>
-      </div>
-      <div class="panel-body">
+            <br>
             <table id="table_participantes" class="table table-hover">
                 <thead>
                     <tr>
@@ -83,6 +75,7 @@
                     @endforeach
                 </tbody>
             </table>
+
       </div>
 </div>
 

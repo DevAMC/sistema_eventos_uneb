@@ -28,9 +28,20 @@ class AppServiceProvider extends ServiceProvider
             ]);
             $event->menu->add([
                 'text' => 'Cadastros',
-                'url' => '/cadastros',
-                'icon' => 'clipboard'
-
+                'url' => '#',
+                'icon' => 'clipboard',
+                'submenu' => [
+                [
+                    'text' => 'Participantes',
+                    'icon' => 'users',
+                    'url' => '/cadastros/participantes',
+                ],
+                [
+                    'text' => 'Eventos',
+                    'icon' => 'calendar',
+                    'url' => '/cadastros/eventos',
+                ],
+            ],
             ]);
             $event->menu->add([
                 'text' => 'Relatórios',

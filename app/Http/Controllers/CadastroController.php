@@ -19,11 +19,17 @@ class CadastroController extends Controller
         $this->middleware('CheckEventoLabel');
     }
 
-    public function view(){
+    public function view_participantes(){
         $eventos = Evento::all();
         $participantes = Participante::where('id_evento', session('id_evento'))->get();
+        return view('cadastro.participante', compact('eventos', 'participantes'));
+    }
 
-        return view('cadastro.home', compact('eventos', 'participantes'));
+    public function view_eventos()
+    {
+        $eventos = Evento::all();
+        $participantes = Participante::where('id_evento', session('id_evento'))->get();
+        return view('cadastro.participante', compact('eventos', 'participantes'));
     }
 
     public function cadastra_participante(Request $request){
