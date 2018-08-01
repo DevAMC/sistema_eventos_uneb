@@ -29,6 +29,9 @@ Route::get('/sorteios/sortear', 'SorteioController@sortear');
 //Rotas relatório
 Route::get('/relatorios', 'RelatorioController@view');
 
+//Rotas cadastro
+Route::get('/cadastros', 'CadastroController@view');
+Route::post('/cadastros', 'CadastroController@cadastra_participante');
 
 //Rotas Label Evento
 Route::get('/selecionaLabelEvento', 'ConfiguraLabelEvento@configuraLabelView');
