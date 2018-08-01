@@ -23,6 +23,7 @@
                     type="identificador" 
                     id="identificador" 
                     class="form-control" 
+                    autocomplete="off"
                     required="required" 
                     onenter
                     placeholder="Digite ou passe o identificador">
@@ -131,8 +132,8 @@
         }
 
             //altera informações do front
-            $('#nome_participante').text(response.participante.nome);
-            $('#campo_participante').text(response.participante.campo);
+            $('#nome_participante').text(response.participante[0].nome);
+            $('#campo_participante').text(response.participante[0].campo);
             
             $('#qnt_participantes').text('Qnt participantes: '+response.qnt_participante+'');
             $('#qnt_participantes_presentes').text('Qnt participantes presentes: '+response.qnt_participante_presentes+'');

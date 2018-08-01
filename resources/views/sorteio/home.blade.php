@@ -41,10 +41,12 @@
                               }, 0, 100);
                         }
                         setTimeout(function (nr) {
-                              numero.innerHTML = response.participante[0].id;
+                              numero.innerHTML = response.participante[0].identificador;
                               nome.innerHTML = response.participante[0].nome;
-                              campo.innerHTML = response.participante[0].id;
+                              campo.innerHTML = response.participante[0].campo;
                         }, 0);
+
+                        console.log(response.participante[0].identificador);
                   }else{
                         numero.innerHTML = 'NENHUM<BR>PARTICIPANTE';
                   }      
