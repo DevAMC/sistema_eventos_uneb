@@ -25,16 +25,13 @@ class CadastroController extends Controller
     }
 
     public function cadastra_participante(Request $request){
-
         $request->validate([
             'identificador' => 'required|unique:participantes|max:255',
             'nome' => 'required|min:5|max:255',
             'campo' => 'required',
             'id_evento' => 'required',
         ]);
-
         $participante = Participante::create($request->all());
-
         return redirect('/cadastros/participantes')->with('status', 'Cadastrado com sucesso...');        
     }
 
@@ -44,9 +41,7 @@ class CadastroController extends Controller
         $request->validate([
             'evento' => 'required|unique:eventos|min:5|max:255',
         ]);
-
         $evento = Evento::create($request->all());
-
         return redirect('/cadastros/eventos')->with('status', 'Cadastrado com sucesso...');
     }
 }

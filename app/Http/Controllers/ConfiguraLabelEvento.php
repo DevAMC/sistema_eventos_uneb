@@ -15,7 +15,7 @@ class ConfiguraLabelEvento extends Controller
 
     public function configuraLabelView()
     {
-        $labels = Evento_label::all();
+        $labels = Evento_label::with('evento')->get();
         $eventos = Evento::all();
         return view('configuraLabel', compact('labels', 'eventos'));
     }
