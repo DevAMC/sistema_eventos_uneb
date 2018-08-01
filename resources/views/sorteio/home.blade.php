@@ -10,12 +10,9 @@
       <div class="panel-body">
         
         <h3 id="numero" class="text-center" style="font-size: 100px; font-weight: 900;"> </h3>
-        <h3 class="text-center" style="font-size: 50px; font-weight: 900; color:goldenrod; color:lightseagreen;"> </h3>
-        <h3 class="text-center" style="font-size: 30px; font-weight: 900; color:goldenrod; "> </h3>
-            
-            
-            <button id="alterarValor" type="button" class="btn btn-default">button</button>
-            
+        <h3 id="nome" class="text-center" style="font-size: 50px; font-weight: 900; color:goldenrod; color:lightseagreen;"> </h3>
+        <h3 id="campo" class="text-center" style="font-size: 30px; font-weight: 900; color:goldenrod; "> </h3>
+       <button onclick="sortear()" class="btn btn-default"> <i class="fa fa-refresh" aria-hidden="true"></i> Sortear</button>
       </div>
 </div>
 @stop
@@ -25,32 +22,33 @@
 
 <script>
       var numero = document.getElementById('numero');
-            var min = 1;
-            var max = 6000;
-            var count = 0;
+      var nome = document.getElementById('nome');
+      var campo = document.getElementById('campo');
+      var min = 1;
+      var max = 10000;
+      var count = 0;
       sortear();
       function sortear() {
-            
-
+            nome.innerHTML = '';
+            campo.innerHTML = '';
             $.ajax({
                   url: ''
             }).done(function (response) {
-                  
+                  for(var i = 0; i < max; i++){
+                        setTimeout(function (nr) {
+                              numero.innerHTML = Math.floor(Math.random() * 1000)
+                        }, 0, 100);
+                  }
+
+                  setTimeout(function (nr) {
+                        numero.innerHTML = 'ok';
+                        nome.innerHTML = 'ok';
+                        campo.innerHTML = 'ok';
+                  }, 0);      
             }).fail(function (erro) {
-                  
+                  alert('Desculpa, não foi possível realizar o sorteio. Verifique se sua conexão está funcionando.');
             });
             
-            // const waitFor = (ms) => new Promise(r => setTimeout(r, ms))
-            // [1, 2, 3].forEach(async (num) => {
-            //        for (var i = min; i <= max; i++) {
-                        // setTimeout(function (nr) {
-                        //       numero.innerHTML = Math.floor(Math.random() * 1000)
-                        //       await waitFor(50);
-                        // }, 0, i);
-            //       }
-                  
-            //       console.log(num)
-            // })
             
 
       };
