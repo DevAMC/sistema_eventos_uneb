@@ -23,13 +23,13 @@ class AppServiceProvider extends ServiceProvider
             $event->menu->add('MENU PRINCIPAL');
             $event->menu->add([
                 'text' => 'Inicial',
-                'url' => '/',
+                'url' => '/home',
                 'icon' => 'home'
             ]);
             $event->menu->add([
                 'text' => 'Cadastros',
                 'url' => '/cadastros',
-                'icon' => 'clipboard-list'
+                'icon' => 'clipboard'
 
             ]);
             $event->menu->add([
