@@ -24,6 +24,7 @@ Route::get('/estatisticas', 'ValidacaoController@receber_estatisticas');
 
 //Rotas sorteio
 Route::get('/sorteios', 'SorteioController@view');
+Route::get('/sorteios/sortear', 'SorteioController@sortear');
 
 
 //Rotas Label Evento
