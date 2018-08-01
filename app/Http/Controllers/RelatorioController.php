@@ -26,7 +26,7 @@ class RelatorioController extends Controller
         $participantes_presentes = Participante::join('presencas', 'presencas.id_participante', '=', 'participantes.identificador')
             ->where('presencas.id_label_evento', session('id_label_evento'))->get();
 
-        $participantes_nao_presentes = Participante::whereNotIn('id', DB::table('presencas')
+        $participantes_nao_presentes = Participante::whereNotIn('identificador', DB::table('presencas')
             ->where('id_label_evento', session('id_label_evento'))
             ->pluck('id_participante'))->get();
 
