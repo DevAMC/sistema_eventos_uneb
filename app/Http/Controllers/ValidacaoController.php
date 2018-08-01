@@ -23,7 +23,7 @@ class ValidacaoController extends Controller
 
     //validar presença (os resultados desta operação ficarão gravados na tabela presenca)
     public function valida(Request $req){
-        if(Participante::find($req->id)){
+        if(Participante::where('identificador',$req->id)->get()->count() > 0){
             if(!$this->ja_validado($req->id, session('id_label_evento'))){
                 $presenca = new Presenca();
                 $presenca->id_participante = $req->id;
@@ -34,7 +34,7 @@ class ValidacaoController extends Controller
                 $estatisticas = $this->receber_estatisticas();
 
                 return response()->json(['status' => 'ok', 
-                            'participante' => Participante::find($req->id),
+                            'participante' => Participante::where('identificador', $req->id)->get(),
                             'qnt_participante' => $estatisticas['qnt_participantes'],
                             'qnt_participante_presentes' => $estatisticas['qnt_participantes_presentes'],
                             'qnt_participante_nao_presentes' => $estatisticas['qnt_participantes_nao_presentes'],
@@ -63,14 +63,16 @@ class ValidacaoController extends Controller
      */
     public function receber_estatisticas(){
         $qnt_participantes = Participante::where('id_evento', session('id_evento'))->count();
-        $qnt_participantes_presentes = Participante::join('presencas', 'presencas.id_participante', '=', 'participantes.id')
+
+        $qnt_participantes_presentes = Participante::join('presencas', 'presencas.id_participante', '=', 'participantes.identificador')
             ->where('presencas.id_label_evento', session('id_label_evento'))->get()->count();
+
         $qnt_participantes_nao_presentes = Participante::whereNotIn('id', DB::table('presencas')
                 ->where('id_label_evento', session('id_label_evento'))
                 ->pluck('id_participante')
             )->get()->count();
 
-        $ultimos_registros = Participante::join('presencas', 'presencas.id_participante', '=', 'participantes.id')
+        $ultimos_registros = Participante::join('presencas', 'presencas.id_participante', '=', 'participantes.identificador')
             ->where('presencas.id_label_evento', session('id_label_evento'))
             ->limit(5)
             ->orderBy('presencas.created_at', 'desc')

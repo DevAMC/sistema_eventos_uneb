@@ -22,14 +22,16 @@ class RelatorioController extends Controller
     public function view(){
 
         $participantes = Participante::where('id_evento', session('id_evento'))->get();
-        $participantes_presentes = Participante::join('presencas', 'presencas.id_participante', '=', 'participantes.id')
+
+        $participantes_presentes = Participante::join('presencas', 'presencas.id_participante', '=', 'participantes.identificador')
             ->where('presencas.id_label_evento', session('id_label_evento'))->get();
+
         $participantes_nao_presentes = Participante::whereNotIn('id', DB::table('presencas')
             ->where('id_label_evento', session('id_label_evento'))
             ->pluck('id_participante'))->get();
 
-        $participantes_sorteados = Participante::join('presencas', 'presencas.id_participante', '=', 'participantes.id')
-            ->join('sorteado_tabs', 'sorteado_tabs.id_participante', '=', 'participantes.id')
+        $participantes_sorteados = Participante::join('presencas', 'presencas.id_participante', '=', 'participantes.identificador')
+            ->join('sorteado_tabs', 'sorteado_tabs.id_participante', '=', 'participantes.identificador')
             ->where('presencas.id_label_evento', session('id_label_evento'))->get();
 
 

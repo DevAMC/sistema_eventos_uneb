@@ -15,12 +15,12 @@ class CreateSorteadoTabsTable extends Migration
     {
         Schema::create('sorteado_tabs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_participante')->unsigned();
+            $table->string('id_participante');
             $table->integer('id_evento_label')->unsigned();
             $table->integer('id_sorteio_label')->unsigned()->nullable()->default(null);
             $table->timestamps();
 
-            $table->foreign('id_participante')->on('participantes')->references('id')->onDelete('cascade');
+            $table->foreign('id_participante')->on('participantes')->references('identificador')->onDelete('cascade');
             $table->foreign('id_evento_label')->on('evento_labels')->references('id')->onDelete('cascade');
             $table->foreign('id_sorteio_label')->on('sorteio_labels')->references('id')->onDelete('cascade');
 

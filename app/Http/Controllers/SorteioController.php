@@ -29,13 +29,13 @@ class SorteioController extends Controller
         $sorteado_ok = false;
 
             $participante = Participante::inRandomOrder()
-                ->join('presencas', 'presencas.id_participante', '=', 'participantes.id')
+                ->join('presencas', 'presencas.id_participante', '=', 'participantes.identificador')
                 ->where('presencas.id_label_evento', session('id_label_evento'))
-                ->whereNotIn('participantes.id', DB::table('sorteado_tabs')
+                ->whereNotIn('participantes.identificador', DB::table('sorteado_tabs')
                     ->where('id_evento_label', session('id_label_evento'))
                     ->pluck('id_participante')
                 )->limit(1)
-                ->select('participantes.id')
+                ->select('participantes.identificador')
                 ->addSelect('participantes.nome')
                 ->addSelect('participantes.campo')
                 ->get();
@@ -43,9 +43,10 @@ class SorteioController extends Controller
 
                 if(!empty($participante[0])){
                     $sorteado = new SorteadoTab();
-                    $sorteado->id_participante = $participante[0]->id;
+                    $sorteado->id_participante = $participante[0]->identificador;
                     $sorteado->id_evento_label = session('id_label_evento');
                     $sorteado->save();
+
                     return response()->json(['status' => 'sorteio ok', 
                                             'participante' => $participante,
                                             'sorteado' => $sorteado]);

@@ -55,18 +55,18 @@ class AppServiceProvider extends ServiceProvider
                 'icon' => 'columns'
 
             ]);
-            $event->menu->add([
-                'text' => 'Configurações',
-                'url' => '/configuracoes',
-                'icon' => 'cogs'
+            // $event->menu->add([
+            //     'text' => 'Configurações',
+            //     'url' => '/configuracoes',
+            //     'icon' => 'cogs'
 
-            ]);
-            $event->menu->add([
-                'text' => 'Apresentação',
-                'url' => '/apresentacao',
-                'icon' => 'desktop'
+            // ]);
+            // $event->menu->add([
+            //     'text' => 'Apresentação',
+            //     'url' => '/apresentacao',
+            //     'icon' => 'desktop'
 
-            ]);
+            // ]);
 
             $event->menu->add([
                 'text' => 'Mudar Label Evento',
