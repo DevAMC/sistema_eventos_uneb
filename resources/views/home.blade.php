@@ -75,6 +75,13 @@
           </div>
     </div>
     
+    <audio id="ok">
+        <source src="bip.mp3" type="audio/mp3" />
+    </audio>
+
+    <audio id="erro">
+        <source src="erro.mp3" type="audio/mp3" />
+    </audio>
     
 @stop
 
@@ -111,21 +118,22 @@
                     $('#participante_ja_validado').css('display', 'none');
                     $('#participante_nao_cadastrado').css('display', 'none');
                     carrega_table();
-
+                    play('ok');
                 }else if(response.erro == 'ja validado'){
                     $('#participante_ja_validado').css('display', 'block');
                     $('#participante_validado').css('display', 'none');
                     $('#participante_nao_cadastrado').css('display', 'none');
+                    play('erro');
 
                     //altera informações do front
                     $('#nome_participante').text('');
                     $('#campo_participante').text('');
-
                 }else{
                     $('#participante_nao_cadastrado').css('display', 'block');
                     $('#participante_ja_validado').css('display', 'none');
                     $('#participante_validado').css('display', 'none');
-
+                    play('erro');
+                    
             //altera informações do front
             $('#nome_participante').text('');
             $('#campo_participante').text('');
@@ -135,9 +143,7 @@
             $('#nome_participante').text(response.participante[0].nome);
             $('#campo_participante').text(response.participante[0].campo);
             
-            $('#qnt_participantes').text('Qnt participantes: '+response.qnt_participante+'');
-            $('#qnt_participantes_presentes').text('Qnt participantes presentes: '+response.qnt_participante_presentes+'');
-            $('#qnt_participantes_nao_presentes').text('Qnt participantes não presentes: '+response.qnt_participante_nao_presentes+'');
+            exibir_estatisticas();
 
             }).fail(function (response) {
                 alert('Falha na requisição, verifique a rede!');
@@ -171,6 +177,36 @@
         });
     function carrega_table(){
         table.ajax.reload();
+    }
+</script>
+
+<script>
+    exibir_estatisticas();
+    //mostra estatísticas
+    function exibir_estatisticas(){
+        $.ajax({
+            url: '/estatisticas'
+        }).done(function (response){
+            console.log(response);
+            //altera informações do front            
+            $('#qnt_participantes').text('Qnt participantes: '+response.qnt_participantes+'');
+            $('#qnt_participantes_presentes').text('Qnt participantes presentes: '+response.qnt_participantes_presentes+'');
+            $('#qnt_participantes_nao_presentes').text('Qnt participantes não presentes: '+response.qnt_participantes_nao_presentes+'');
+        }).fail(function(erro){
+
+        });
+    }
+
+    audio_ok = document.getElementById('ok');
+    audio_erro = document.getElementById('erro');
+
+    function play(status){
+        console.log('status:'+status);
+        if(status == 'ok'){
+            audio_ok.play();
+        }else{
+            audio_erro.play();
+        }
     }
 </script>
 
