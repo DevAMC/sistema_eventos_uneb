@@ -13,7 +13,7 @@ class CadastroController extends Controller
         $this->middleware('CheckEventoLabel');
 
         $eventos = Evento::all();
-        $participantes = Participante::where('id_evento', session('id_evento'))->get();
+        $participantes = Participante::join('eventos', 'eventos.id', '=', 'participantes.id_evento')->get();
         return view('cadastro.participante', compact('eventos', 'participantes'));
     }
 

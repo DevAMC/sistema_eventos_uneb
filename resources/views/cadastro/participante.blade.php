@@ -63,6 +63,7 @@
                         <th>Id</th>
                         <th>Nome</th>
                         <th>Campo</th>
+                        <th>Evento</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,6 +72,7 @@
                         <td>{{$participante->identificador}}</td>
                         <td>{{$participante->nome}}</td>
                         <td>{{$participante->campo}}</td>
+                        <td>{{$participante->evento}}</td>
                     </tr>
                     @endforeach
                 </tbody>
