@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-#Versão
+## Versão
 
 0.0.1 (Alpha)
 
@@ -18,10 +18,10 @@ A Aplicação foi desenvolvida com intuíto de organizar o check-in, sorteios e 
 ## Implementação
 
  - Após realizar o download da aplicação, certifique-se de ter um ambiente rodando com PHP 7.1.2 ou superior e MySQL 5.6 ou superior;
- - Instale o composer;
+ - Instale o composer (https://getcomposer.org/download/);
  - Navegue até a pasta da aplicação e execute 'compose install' para realizar o download das dependências;
  - Duplique o arquivo .env.example renomeando para .env, 
- - Abre o arquivo .env em um edtor de textos te sua preferência; 
+ - Abra o arquivo .env em um edtor de textos te sua preferência; 
  - Altere a flag APP_ENV para 'production';
  - Altere as configurações de host, username e password do MySQL para que a aplicação consiga se conectar com o banco;
  - Finalize a instalação executando o comando 'php artisan migrate'
