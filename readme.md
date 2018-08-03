@@ -28,6 +28,10 @@ A Aplicação foi desenvolvida com intuíto de organizar o check-in, sorteios e 
 Você pode automatizar a atualização da aplicação instalando o git (https://git-scm.com/downloads) e clonando o repositório com o comando **'git clone https://github.com/devuneb/sistema_eventos_uneb'** e sempre que precisar atualizar a versão, poderá utilizar o comando **'git pull'** na raiz do projeto.
 Você também pode automatizar este processo criando um cron ou uma tarefa no windows que faça extamente o processo descrito neste passo.
 
+## Precedimento para importação de participantes via planilha do excel
+
+Por problemas de encodificação e padronização da versão do office, recomendamos converter o arquivo do excel (XLSX ou similiar) para um CSV separados por vírgula e importar na base de dados usando um cliente do MySQL, recomendamos o MySQL Workbench para Windows e Linux e o Sequel Pro para Mac.
+
 ## Documentação de uso
 
 Estamos preparando um material para auxilio de uso do sistema;
