@@ -5,6 +5,11 @@
         - {{(!empty($label_selecionado[0]->label)) ? $label_selecionado[0]->label : "label indisponível"}}</h1>
 @stop
 
+@push('js')
+<script type="text/javascript" src="./js/WebCodeCam/qrcodelib.js"></script>
+<script type="text/javascript" src="./js/WebCodeCam/WebCodeCam.js"></script>
+@endpush
+
 @section('content')
 
     <div class="panel panel-danger">
@@ -12,12 +17,27 @@
                 <h3 class="panel-title">Validação</h3>
           </div>
           <div class="panel-body">
-
+            
+            <button type="button" onclick="inicia_cam_leitor();" class="btn btn-info"><i class="fa fa-qrcode"></i> Leitor QR Code e Código de barras</button>
             
             <div class="col-md-12">
                 <h1 id="nome_participante" class="text-center" style="font-weight: 900; color: #ff5722;"> </h1>
                 <h3 id="campo_participante" class="text-center" style="font-weight: 600;"> </h3>
             </div>
+
+            <center>
+                
+                <div id="leitor_cam_barcode" style="position: relative;display: inline-block; display: none;">
+                    <canvas id="qr-canvas" width="320" height="240"></canvas>
+                    <div class="scanner-laser laser-rightBottom" style="opacity: 0.5;"></div>
+                    <div class="scanner-laser laser-rightTop" style="opacity: 0.5;"></div>
+                    <div class="scanner-laser laser-leftBottom" style="opacity: 0.5;"></div>
+                    <div class="scanner-laser laser-leftTop" style="opacity: 0.5;"></div>
+                    <br>
+                </div>
+
+            </center>
+
                 <input 
                     style="font-size: 30px; padding: 40px; text-align: center; font-weight: 900;"
                     type="identificador" 
@@ -208,6 +228,52 @@
             audio_erro.play();
         }
     }
+</script>
+
+<script type="text/javascript">
+    //configura simulação trigger
+    function inicia_cam_leitor() {
+        $('#leitor_cam_barcode').css('display', 'block');
+        var simulaEnter = jQuery.Event("keypress");
+        simulaEnter.ctrlKey = false;
+        simulaEnter.which = 13; //13 cod enter
+
+        $('#qr-canvas').WebCodeCam({
+            ReadQRCode: true, // false or true
+            ReadBarecode: true, // false or true
+            width: 320,
+            height: 240,
+            videoSource: {
+                id: true,      //default Videosource
+                maxWidth: 640, //max Videosource resolution width
+                maxHeight: 480 //max Videosource resolution height
+            },
+            flipVertical: false,  // false or true
+            flipHorizontal: false,  // false or true
+            zoom: -3, // if zoom = -1, auto zoom for optimal resolution else int
+            //beep: "js/WebCodeCam/beep.mp3", // string, audio file location
+            autoBrightnessValue: false, // functional when value autoBrightnessValue is int
+            brightness: 0, // int 
+            grayScale: false, // false or true
+            contrast: 0, // int 
+            threshold: 0, // int 
+            sharpness: [], //or matrix, example for sharpness ->  [0, -1, 0, -1, 5, -1, 0, -1, 0]
+            resultFunction: function (resText, lastImageSrc) {
+                $('#identificador').val(resText);
+                $('#identificador').trigger(simulaEnter);
+                setTimeout(() => {
+                }, 50);
+            },
+            getUserMediaError: function () {
+                alert('Desculpe, este browser não suporta esta operação (not suport getUserMedia)');
+            },
+            cameraError: function (error) {
+                alert('Erro na câmera: ' + error);
+            }
+        });
+    
+    }
+    
 </script>
 
 
