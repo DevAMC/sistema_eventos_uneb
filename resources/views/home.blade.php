@@ -5,6 +5,10 @@
         - {{(!empty($label_selecionado[0]->label)) ? $label_selecionado[0]->label : "label indisponível"}}</h1>
 @stop
 
+@push('js')
+<script type="text/javascript" src="instascan.min.js"></script>
+@endpush
+
 @section('content')
 
     <div class="panel panel-danger">
@@ -13,6 +17,9 @@
           </div>
           <div class="panel-body">
 
+            
+            <button type="button" class="btn btn-info">Leitor QR code</button>
+            <button type="button" class="btn btn-info">Leitor Cóigo de Barras</button>
             
             <div class="col-md-12">
                 <h1 id="nome_participante" class="text-center" style="font-weight: 900; color: #ff5722;"> </h1>
