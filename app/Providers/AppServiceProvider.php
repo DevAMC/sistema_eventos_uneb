@@ -52,7 +52,19 @@ class AppServiceProvider extends ServiceProvider
             $event->menu->add([
                 'text' => 'Sorteio',
                 'url' => '/sorteios',
-                'icon' => 'columns'
+                'icon' => 'columns',
+                'submenu' => [
+                    [
+                        'text' => 'Sorteio por label',
+                        'icon' => 'refresh',
+                        'url' => '/sorteios/porlabels',
+                    ],
+                    [
+                        'text' => 'Sorteio todos os participantes',
+                        'icon' => 'refresh',
+                        'url' => '/sorteios/todos',
+                    ],
+                ]
 
             ]);
             // $event->menu->add([
