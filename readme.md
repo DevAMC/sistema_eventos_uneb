@@ -25,7 +25,7 @@ Você também pode automatizar este processo criando um cron ou uma tarefa no wi
 
 ## Leitor QRcode e barcode
 
-O leitor de QR code e código de barras utilizado, é uma lib fornecida pelo **'WebCodeCam'** e atualmente não tem suporte para iOS, em breve estaremos lançando uma versão com a correção do deste detalhe.
+O leitor de QR code e código de barras utilizado, é uma lib fornecida pelo **'WebCodeCam'** e atualmente não tem suporte para iOS, em breve estaremos lançando uma versão com a correção deste detalhe.
 
 ## Precedimento para importação de participantes via planilha do excel
 
