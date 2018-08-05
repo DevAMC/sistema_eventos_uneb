@@ -2,7 +2,7 @@
 A Aplicação foi desenvolvida com intuíto de organizar o check-in, sorteios e relatórios de presença em nossos eventos.
 
 ## Versão
-0.0.1 (Alpha)
+0.0.2 (Beta)
 
 ## Implementação
 
