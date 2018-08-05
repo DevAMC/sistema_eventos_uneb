@@ -53,13 +53,7 @@
             }).fail(function (erro) {
                   alert('Desculpa, não foi possível realizar o sorteio. Verifique se sua conexão está funcionando.');
             });
-            
-            
-
       };
-
-    
-
 </script>
 
 @endpush

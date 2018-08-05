@@ -14,6 +14,8 @@
        <button onclick="sortear()" class="btn btn-default"> <i class="fa fa-refresh" aria-hidden="true"></i> Sortear</button>
       </div>
 </div>
+
+<p>Este tipo de sorteio sorteará todos os participantes deste evento, não realizando filtro entre labels.</p>
 @stop
 
 
