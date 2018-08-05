@@ -31,7 +31,7 @@
             nome.innerHTML = '';
             campo.innerHTML = '';
             $.ajax({
-                  url: '/sorteios/sortear'
+                  url: '/sorteios/acao/porlabels'
             }).done(function (response) {
                   console.log(response);
                   if(response.status == "sorteio ok"){

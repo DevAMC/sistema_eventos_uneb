@@ -8,7 +8,6 @@
 
 <div class="panel panel-danger">
       <div class="panel-body">
-        
         <h3 id="numero" class="text-center" style="font-size: 100px; font-weight: 900;"> </h3>
         <h3 id="nome" class="text-center" style="font-size: 50px; font-weight: 900; color:goldenrod; color:lightseagreen;"> </h3>
         <h3 id="campo" class="text-center" style="font-size: 30px; font-weight: 900; color:goldenrod; "> </h3>
@@ -31,7 +30,7 @@
             nome.innerHTML = '';
             campo.innerHTML = '';
             $.ajax({
-                  url: '/sorteios/sortear'
+                  url: '/sorteios/acao/todos'
             }).done(function (response) {
                   console.log(response);
                   if(response.status == "sorteio ok"){

@@ -34,7 +34,8 @@ Route::post('/validacao', 'ValidacaoController@valida');
 Route::get('/estatisticas', 'ValidacaoController@receber_estatisticas');
 
 //Rotas sorteio
-Route::get('/sorteios', 'SorteioController@view');
+Route::get('/sorteios/acao/porlabels', 'SorteioController@sortear');
+Route::get('/sorteios/acao/todos', 'SorteioController@sortear_todos_participantes');
 Route::get('/sorteios/porlabels', 'SorteioController@view_sorteio_labels');
 Route::get('/sorteios/todos', 'SorteioController@view_sorteio_todos');
 
