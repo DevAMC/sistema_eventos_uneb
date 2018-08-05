@@ -16,13 +16,18 @@
                 <h3 class="panel-title">Validação</h3>
           </div>
           <div class="panel-body">
-
-            <video id="preview"></video>
-
+            
+            
+            <button type="button" onclick="inica_qr_code();" class="btn btn-info"><i class="fa fa-qrcode"></i> QR Code</button>
+            <button type="button" class="btn btn-info"> <i class="fa fa-qrcode"></i> Código de barras</button>
+            
             <div class="col-md-12">
                 <h1 id="nome_participante" class="text-center" style="font-weight: 900; color: #ff5722;"> </h1>
                 <h3 id="campo_participante" class="text-center" style="font-weight: 600;"> </h3>
             </div>
+
+            <center><video id="exibe_cam_qr_code" width="60%" style="display: none;"></video></center>
+
                 <input 
                     style="font-size: 30px; padding: 40px; text-align: center; font-weight: 900;"
                     type="identificador" 
@@ -216,9 +221,24 @@
 </script>
 
 <script type="text/javascript">
-      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+      
+      function inica_qr_code(){
+      $('#exibe_cam_qr_code').css('display', 'block');
+      let scanner = new Instascan.Scanner({ video: document.getElementById('exibe_cam_qr_code') });
       scanner.addListener('scan', function (content) {
+        //configura simulação trigger
+        var simulaEnter = jQuery.Event("keypress");
+        simulaEnter.ctrlKey = false;
+        simulaEnter.which = 13; //13 cod enter
+
+        //pega o valor da leitura e realiza validação do usuário no front
         console.log(content);
+        $('#identificador').val(content);
+        $('#identificador').trigger(simulaEnter);
+        setTimeout(() => {
+        }, 50);
+
+
       });
       Instascan.Camera.getCameras().then(function (cameras) {
         if (cameras.length > 0) {
@@ -229,6 +249,7 @@
       }).catch(function (e) {
         console.error(e);
       });
+    }
     </script>
 
 
