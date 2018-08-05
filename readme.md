@@ -21,6 +21,7 @@ A Aplicação foi desenvolvida com intuíto de organizar o check-in, sorteios e 
  - Abra o arquivo .env em um edtor de textos de sua preferência; 
  - Altere a flag APP_ENV para 'production';
  - Altere as configurações de host, username e password do MySQL para que a aplicação consiga se conectar com o banco;
+ - Execute o comando **'php artisan key:generate'** para gerar uma chave;
  - Finalize a instalação executando o comando **'php artisan migrate'** (este comando é responsável de criar a estrutura de tabelas da aplicação);
  - Para criar um usuário para gerir o sistema, execute o comando **'php artisan CriaUsuario'** na raiz do sistema e informe os dados solicitados.
 
