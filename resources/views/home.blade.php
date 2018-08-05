@@ -5,6 +5,10 @@
         - {{(!empty($label_selecionado[0]->label)) ? $label_selecionado[0]->label : "label indisponível"}}</h1>
 @stop
 
+@push('js')
+<script type="text/javascript" src="./js/instascan.min.js"></script>
+@endpush
+
 @section('content')
 
     <div class="panel panel-danger">
@@ -13,7 +17,8 @@
           </div>
           <div class="panel-body">
 
-            
+            <video id="preview"></video>
+
             <div class="col-md-12">
                 <h1 id="nome_participante" class="text-center" style="font-weight: 900; color: #ff5722;"> </h1>
                 <h3 id="campo_participante" class="text-center" style="font-weight: 600;"> </h3>
@@ -209,6 +214,22 @@
         }
     }
 </script>
+
+<script type="text/javascript">
+      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+      scanner.addListener('scan', function (content) {
+        console.log(content);
+      });
+      Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+          scanner.start(cameras[0]);
+        } else {
+          console.error('Nenhuma camera encontrada.');
+        }
+      }).catch(function (e) {
+        console.error(e);
+      });
+    </script>
 
 
 @endpush
