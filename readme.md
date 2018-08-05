@@ -1,13 +1,6 @@
 # Sistema de Eventos - UNeB 🖥📔📆
 A Aplicação foi desenvolvida com intuíto de organizar o check-in, sorteios e relatórios de presença em nossos eventos.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
-
 ## Versão
 0.0.1 (Alpha)
 
@@ -29,6 +22,10 @@ A Aplicação foi desenvolvida com intuíto de organizar o check-in, sorteios e 
 
 Você pode automatizar a atualização da aplicação instalando o git (https://git-scm.com/downloads) e clonando o repositório com o comando **'git clone https://github.com/devuneb/sistema_eventos_uneb'** e sempre que precisar atualizar a versão, poderá utilizar o comando **'git pull'** na raiz do projeto.
 Você também pode automatizar este processo criando um cron ou uma tarefa no windows que faça extamente o processo descrito neste passo.
+
+## Leitor QRcode e barcode
+
+O leitor de QR code e código de barras utilizado, é uma lib fornecida pelo **'WebCodeCam'** e atualmente não tem suporte para iOS, em breve estaremos lançando uma versão com a correção do deste detalhe.
 
 ## Precedimento para importação de participantes via planilha do excel
 
