@@ -33,11 +33,11 @@ Por problemas de encodificação e padronização da versão do office, recomend
 
 ## Documentação de uso
 
-Estamos preparando um material para auxilio de uso do sistema;
+Para acessar o manual de uso do sistema [clique aqui](https://github.com/devuneb/sistema_eventos_uneb/wiki)
 
 ## Novas features, backlog e projeto
 
-Acompanhe as funcionalidades futuras e em desenvolvimento [Clicando aqui](https://github.com/devuneb/sistema_eventos_uneb/projects/1) 
+Acompanhe as funcionalidades futuras e em desenvolvimento [clicando aqui](https://github.com/devuneb/sistema_eventos_uneb/projects/1) 
 
 ## Sugestões ou problemas
 
