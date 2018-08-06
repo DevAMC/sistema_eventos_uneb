@@ -35,6 +35,10 @@ Por problemas de encodificação e padronização da versão do office, recomend
 
 Estamos preparando um material para auxilio de uso do sistema;
 
+## Novas features, backlog e projeto
+
+Acompanhe as funcionalidades futuras e em desenvolvimento [Clicando aqui](https://github.com/devuneb/sistema_eventos_uneb/projects/1) 
+
 ## Sugestões ou problemas
 
 Sinta-se à vontade para abrir uma issue neste repositório em caso de sugestões ou problemas no sistema;
