@@ -41,7 +41,7 @@ Acompanhe as funcionalidades futuras e em desenvolvimento [clicando aqui](https:
 
 ## Sugestões ou problemas
 
-Sinta-se à vontade para abrir uma issue neste repositório em caso de sugestões ou problemas no sistema;
+Sinta-se à vontade para (abrir uma issue)[https://github.com/devuneb/sistema_eventos_uneb/issues/new] neste repositório em caso de sugestões ou problemas no sistema;
 
 ## Uso com docker
 
