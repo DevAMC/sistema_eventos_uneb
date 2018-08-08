@@ -1,6 +1,8 @@
 # Sistema de Eventos - UNeB 🖥📔📆
 A Aplicação foi desenvolvida com intuíto de organizar o check-in, sorteios e relatórios de presença em nossos eventos.
 
+[![Build Status](https://travis-ci.org/devuneb/sistema_eventos_uneb.svg?branch=master)](https://travis-ci.org/devuneb/sistema_eventos_uneb)
+
 ## Versão
 0.0.2 (Beta)
 
