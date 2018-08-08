@@ -1,11 +1,12 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class TestApp extends TestCase
+class TestFuncionamentoApp extends TestCase
 {
     /**
      * Faz um teste se a aplicação está rodando na rota base /
