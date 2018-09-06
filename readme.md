@@ -51,7 +51,7 @@ Estamos preparando um ambiente docker.
 
 ## Créditos
 
-Esta aplicação é totalmente produzida e mentida pela União Nordeste Brasileira;
+Esta aplicação é totalmente produzida e mantida pela União Nordeste Brasileira;
 
 ## Copywrite
 
